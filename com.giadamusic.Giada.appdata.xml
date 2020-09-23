@@ -39,7 +39,21 @@
  <url type="homepage">https://www.giadamusic.com/</url>
  <url type="help">https://www.giadamusic.com/forum</url>
  <releases>
-   <release version="0.16.3.1" date="2020-06-21">
+   <release version="0.16.4" date="2020-09-23">
+     <description>
+       <ul>
+         <li>Support for mono inputs</li>
+         <li>Overdub mode for Sample Channels with optional overdub protection</li>
+         <li>Disable record-on-signal mode when sequencer is running</li>
+         <li>Shift + [click on R button] kills action reading when "Treat one-shot channels with actions as loops" option is on</li>
+         <li>Start MIDI channels automatically after action recording session</li>
+         <li>Fix wrong sample rate conversion when project rate != system rate</li>
+         <li>Fix Wrong begin/end sample markers when loading a project with samplerate != system.samplerate</li>
+         <li>Fix wrong MIDI learn mapping for master parameters</li>
+         <li>Fix BPM button disabled after audio recording session</li>
+       </ul>
+     </description>
    </release>
+   <release version="0.16.3.1" date="2020-06-21" />
  </releases>
 </component>
