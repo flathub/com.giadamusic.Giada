@@ -95,8 +95,20 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-0.16.3.1-src.tar.gz",
-                    "sha256": "70979ec9346d5e16dd2628e6ccb0bdbabe9fcff9b7c5333c15347c139f23a189"
+                    "url": "https://github.com/monocasual/giada/archive/v0.16.4.tar.gz",
+                    "sha256": "a425151ff571d4b0e79a3faaa6dd872c8f2693ffcada975b282365c865130b38"
+                },
+                {
+                    "type": "git",
+                    "url": "https://github.com/juce-framework/JUCE.git",
+                    "commit": "06c3674",
+                    "dest": "src/deps/juce"
+                },
+                {
+                    "type": "git",
+                    "url": "https://github.com/nlohmann/json.git",
+                    "commit": "bde5712",
+                    "dest": "src/deps/json"
                 },
                 {
                     "type": "patch",
