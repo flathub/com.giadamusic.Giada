@@ -39,6 +39,40 @@
  <url type="homepage">https://www.giadamusic.com/</url>
  <url type="help">https://www.giadamusic.com/forum</url>
  <releases>
+   <release version="0.17.0" date="2020-11-16">
+     <description>
+       <ul>
+         <li>Add CMake build system</li>
+         <li>VST3 support</li>
+         <li>Show descriptive plug-in names in Plug-in List
+         Window</li>
+         <li>Resizable plug-in list</li>
+         <li>New persistence mechanism for Plug-ins state</li>
+         <li>Improved text truncation for small buttons and text
+         boxes</li>
+         <li>Beautify Sample Editor window</li>
+         <li>Resizable plug-in list window</li>
+         <li>Show descriptive plug-in name in plug-in list</li>
+         <li>Update JUCE, version 6.0.4</li>
+         <li>Update Catch2 to version 2.13.2</li>
+         <li>Replace old filesystem functions in fs.h with
+         std::filesystem</li>
+         <li>Add VST3 SDK as git submodule</li>
+         <li>Set minimum macOS version to 10.14</li>
+         <li>Statically link the MSVC runtime library on Windows</li>
+         <li>Avoid crash on opening plug-in list with invalid
+         plug-ins</li>
+         <li>Rewind sample channels in loop.once.bar mode on bar, if
+         still playing (fix #403)</li>
+         <li>Modernize log::print() function to handle std::string
+         arguments (PR #402)</li>
+         <li>Fix playStatus logic for ending sample channels in
+         loop-once-bar mode (#404)</li>
+         <li>Fix shrinking beats that could glitch the output
+         (#361)</li>
+       </ul>
+     </description>
+   </release>
    <release version="0.16.4" date="2020-09-23">
      <description>
        <ul>

@@ -16,14 +16,15 @@
         "--filesystem=home",
         /* Allow other instances to see lockfiles */
         "--env=TMPDIR=/var/tmp",
-        "--env=VST_PATH=/app/extensions/Plugins/lxvst"
+        "--env=VST_PATH=/app/extensions/Plugins/lxvst",
+        "--env=VST3_PATH=/app/extensions/Plugins/vst3"
     ],
     "add-extensions": {
         "org.freedesktop.LinuxAudio.Plugins": {
             "directory": "extensions/Plugins",
             "version": "20.08",
             "add-ld-path": "lib",
-            "merge-dirs": "lxvst",
+            "merge-dirs": "lxvst;vst3",
             "subdirectories": true,
             "no-autodownload": true
         }
@@ -80,13 +81,14 @@
         "shared-modules/linux-audio/jack2.json",
         {
             "name": "giada",
-            "buildsystem": "autotools",
-            "config_opts": [
-                "--target=linux",
-                "--enable-vst"
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebugInfo",
+                "-DWITH_VST3=ON"
             ],
-            "cleanup": [],
-            "post_install": [
+            "no-make-install": true,
+            "post-install": [
+                "install -Dm0755 -t /app/bin giada",
                 "install -Dm0644 extras/giada-logo.png /app/share/icons/com.giadamusic.Giada.png",
                 "install -Dm0644 -t /app/share/metainfo com.giadamusic.Giada.appdata.xml",
                 "install -Dm0644 -t /app/share/applications com.giadamusic.Giada.desktop",
@@ -95,24 +97,30 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/monocasual/giada/archive/v0.16.4.tar.gz",
-                    "sha256": "a425151ff571d4b0e79a3faaa6dd872c8f2693ffcada975b282365c865130b38"
+                    "url": "https://github.com/monocasual/giada/archive/v0.17.0.tar.gz",
+                    "sha256": "b879f5ba7e9f34d7422aedd89d1d0baa91387b3528e057b4df25e1f2f8d661ef"
                 },
                 {
                     "type": "git",
                     "url": "https://github.com/juce-framework/JUCE.git",
-                    "commit": "06c3674",
+                    "commit": "b8206e3",
                     "dest": "src/deps/juce"
                 },
                 {
                     "type": "git",
                     "url": "https://github.com/nlohmann/json.git",
-                    "commit": "bde5712",
+                    "commit": "db78ac1",
                     "dest": "src/deps/json"
                 },
                 {
+                    "type": "git",
+                    "url": "https://github.com/steinbergmedia/vst3sdk.git",
+                    "commit": "ef0a70d",
+                    "dest": "src/deps/vst3sdk"
+                },
+                {
                     "type": "patch",
-                    "path": "giada-juce.patch"
+                    "path": "giada-fs.patch"
                 },
                 {
                     "type": "file",
