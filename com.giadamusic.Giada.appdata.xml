@@ -39,6 +39,21 @@
  <url type="homepage">https://www.giadamusic.com/</url>
  <url type="help">https://www.giadamusic.com/forum</url>
  <releases>
+   <release version="0.17.1" date="2021-02-01">
+     <description>
+       <ul>
+         <li>Better CMake dependency management</li>
+         <li>Add CMake install rules (#422)</li>
+         <li>Switch to GitHub Actions for CI and release builds (#440)</li>
+         <li>Remove hardcored 'test' folder in test suite (#432)</li>
+         <li>Make sure macOS minimum target is set to 10.14 (#444)</li>
+         <li>Fix crash when restarting after setting jack as an audio server (#409, #368)</li>
+         <li>Fix crash when clicking "Cancel" button in Browser dialog (#430)</li>
+         <li>Fix wrong action ID mapping when cloning a channel (#426)</li>
+         <li>Fix scrambled MIDI bindings (#427)</li>
+       </ul>
+     </description>
+   </release>
    <release version="0.17.0" date="2020-11-16">
      <description>
        <ul>

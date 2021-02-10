@@ -16,7 +16,6 @@
         "--filesystem=home",
         /* Allow other instances to see lockfiles */
         "--env=TMPDIR=/var/tmp",
-        "--env=VST_PATH=/app/extensions/Plugins/lxvst",
         "--env=VST3_PATH=/app/extensions/Plugins/vst3"
     ],
     "add-extensions": {
@@ -86,9 +85,7 @@
                 "-DCMAKE_BUILD_TYPE=RelWithDebugInfo",
                 "-DWITH_VST3=ON"
             ],
-            "no-make-install": true,
             "post-install": [
-                "install -Dm0755 -t /app/bin giada",
                 "install -Dm0644 extras/giada-logo.png /app/share/icons/com.giadamusic.Giada.png",
                 "install -Dm0644 -t /app/share/metainfo com.giadamusic.Giada.appdata.xml",
                 "install -Dm0644 -t /app/share/applications com.giadamusic.Giada.desktop",
@@ -97,8 +94,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/monocasual/giada/archive/v0.17.0.tar.gz",
-                    "sha256": "b879f5ba7e9f34d7422aedd89d1d0baa91387b3528e057b4df25e1f2f8d661ef"
+                    "url": "https://github.com/monocasual/giada/archive/v0.17.1.tar.gz",
+                    "sha256": "ab88b224e619d02d880a1af5a32699ab7baf9d40cd3852c2befd3f51bc94eee4"
                 },
                 {
                     "type": "git",
@@ -117,6 +114,12 @@
                     "url": "https://github.com/steinbergmedia/vst3sdk.git",
                     "commit": "ef0a70d",
                     "dest": "src/deps/vst3sdk"
+                },
+                {
+                    "type": "git",
+                    "url": "https://github.com/monocasual/rtaudio.git",
+                    "commit": "eca6192",
+                    "dest": "src/deps/rtaudio"
                 },
                 {
                     "type": "patch",
