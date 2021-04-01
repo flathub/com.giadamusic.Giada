@@ -94,13 +94,13 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/monocasual/giada/archive/v0.17.1.tar.gz",
-                    "sha256": "ab88b224e619d02d880a1af5a32699ab7baf9d40cd3852c2befd3f51bc94eee4"
+                    "url": "https://github.com/monocasual/giada/archive/v0.17.2.tar.gz",
+                    "sha256": "205dd68e2a19207a3c4fbe42451ac315327d856cf555deac7e04d3c3577e191c"
                 },
                 {
                     "type": "git",
                     "url": "https://github.com/juce-framework/JUCE.git",
-                    "commit": "b8206e3",
+                    "commit": "99112cf",
                     "dest": "src/deps/juce"
                 },
                 {

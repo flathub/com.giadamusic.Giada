@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 0a5118bb..8e2cd927 100644
+index c58d8d14..cfd418e6 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -277,7 +277,7 @@ message("RtMidi library found in " ${RtMidi_DIR})
+@@ -291,7 +291,7 @@ endif()
  
  set(FLTK_SKIP_FLUID TRUE)  # Don't search for FLTK's fluid
  set(FLTK_SKIP_OPENGL TRUE) # Don't search for FLTK's OpenGL
@@ -11,7 +11,7 @@ index 0a5118bb..8e2cd927 100644
  list(APPEND LIBRARIES fltk fltk_gl fltk_forms fltk_images)
  message("FLTK library found in " ${FLTK_DIR})
  
-@@ -358,7 +358,7 @@ if(DEFINED OS_LINUX)
+@@ -387,7 +387,7 @@ if(DEFINED OS_LINUX)
  		${X11_LIBRARIES} ${X11_Xrender_LIB} ${X11_Xft_LIB} ${X11_Xfixes_LIB}
  		${X11_Xinerama_LIB} ${X11_Xcursor_LIB} ${X11_Xpm_LIB} ${LIBRARY_PULSE}
  		${LIBRARY_PULSE_SIMPLE} ${LIBRARY_FONTCONFIG} ${LIBRARY_JACK}
@@ -20,7 +20,7 @@ index 0a5118bb..8e2cd927 100644
  
  	list(APPEND PREPROCESSOR_DEFS
  		WITH_AUDIO_JACK
-@@ -500,7 +500,7 @@ target_compile_options(giada PRIVATE ${COMPILER_OPTIONS})
+@@ -529,7 +529,7 @@ target_compile_options(giada PRIVATE ${COMPILER_OPTIONS})
  # Install rules
  # ------------------------------------------------------------------------------
  
@@ -29,3 +29,15 @@ index 0a5118bb..8e2cd927 100644
  
  # ------------------------------------------------------------------------------
  # Extra
+diff --git a/src/gui/dialogs/browser/browserBase.h b/src/gui/dialogs/browser/browserBase.h
+index c0a79af5..4781d732 100644
+--- a/src/gui/dialogs/browser/browserBase.h
++++ b/src/gui/dialogs/browser/browserBase.h
+@@ -30,6 +30,7 @@
+ #include "core/types.h"
+ #include "gui/dialogs/window.h"
+ #include <functional>
++#include <string>
+ 
+ class Fl_Group;
+ class geCheck;
