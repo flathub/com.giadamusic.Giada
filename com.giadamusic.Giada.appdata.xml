@@ -39,6 +39,7 @@
  <url type="homepage">https://www.giadamusic.com/</url>
  <url type="help">https://www.giadamusic.com/forum</url>
  <releases>
+   <release version="0.17.2" date="2021-03-31" />
    <release version="0.17.1" date="2021-02-01">
      <description>
        <ul>
