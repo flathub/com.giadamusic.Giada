@@ -20,24 +20,3 @@ index c58d8d14..cfd418e6 100644
  
  	list(APPEND PREPROCESSOR_DEFS
  		WITH_AUDIO_JACK
-@@ -529,7 +529,7 @@ target_compile_options(giada PRIVATE ${COMPILER_OPTIONS})
- # Install rules
- # ------------------------------------------------------------------------------
- 
--install(TARGETS giada DESTINATION ${CMAKE_INSTALL_PREFIX})
-+install(TARGETS giada DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
- 
- # ------------------------------------------------------------------------------
- # Extra
-diff --git a/src/gui/dialogs/browser/browserBase.h b/src/gui/dialogs/browser/browserBase.h
-index c0a79af5..4781d732 100644
---- a/src/gui/dialogs/browser/browserBase.h
-+++ b/src/gui/dialogs/browser/browserBase.h
-@@ -30,6 +30,7 @@
- #include "core/types.h"
- #include "gui/dialogs/window.h"
- #include <functional>
-+#include <string>
- 
- class Fl_Group;
- class geCheck;
