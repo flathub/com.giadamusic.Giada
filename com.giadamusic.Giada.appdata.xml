@@ -39,6 +39,21 @@
  <url type="homepage">https://www.giadamusic.com/</url>
  <url type="help">https://www.giadamusic.com/forum</url>
  <releases>
+   <release version="0.18.0" date="2021-05-19">
+     <description>
+       <ul>
+         <li>New 'free loop-length' audio recording mode (#63)</li>
+         <li>Many AudioBuffer improvements</li>
+         <li>Audio configuration panel refactoring</li>
+         <li>KernelAudio improvements and cleanups</li>
+         <li>Relaxed BPM handling when working with JACK</li>
+         <li>Install executable to FHS compliant location (#450)</li>
+         <li>[CI] Don't UPX binaries on macOS (#459)</li>
+         <li>Fix Overdub protection ON by default not working (#460)</li>
+         <li>Fix crash when moving up from a deleted folder (#455)</li>
+       </ul>
+     </description>
+   </release>
    <release version="0.17.2" date="2021-03-31" />
    <release version="0.17.1" date="2021-02-01">
      <description>
