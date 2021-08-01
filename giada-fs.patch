@@ -1,22 +1,20 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c58d8d14..cfd418e6 100644
+index c1571c58..8399d86e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -291,7 +291,7 @@ endif()
- 
- set(FLTK_SKIP_FLUID TRUE)  # Don't search for FLTK's fluid
- set(FLTK_SKIP_OPENGL TRUE) # Don't search for FLTK's OpenGL
--find_package(FLTK CONFIG REQUIRED)
-+find_package(FLTK REQUIRED)
- list(APPEND LIBRARIES fltk fltk_gl fltk_forms fltk_images)
- message("FLTK library found in " ${FLTK_DIR})
- 
-@@ -387,7 +387,7 @@ if(DEFINED OS_LINUX)
+@@ -395,7 +395,7 @@ if(DEFINED OS_LINUX)
  		${X11_LIBRARIES} ${X11_Xrender_LIB} ${X11_Xft_LIB} ${X11_Xfixes_LIB}
  		${X11_Xinerama_LIB} ${X11_Xcursor_LIB} ${X11_Xpm_LIB} ${LIBRARY_PULSE}
- 		${LIBRARY_PULSE_SIMPLE} ${LIBRARY_FONTCONFIG} ${LIBRARY_JACK}
+ 		${LIBRARY_PULSE_SIMPLE} ${LIBRARY_FONTCONFIG} ${JACK_LDFLAGS}
 -		${CMAKE_DL_LIBS} ${ALSA_LIBRARIES} pthread stdc++fs)
 +		${CMAKE_DL_LIBS} ${ALSA_LIBRARIES} pthread)
  
- 	list(APPEND PREPROCESSOR_DEFS
- 		WITH_AUDIO_JACK
+ 	if (WITH_ALSA)
+ 		list(APPEND PREPROCESSOR_DEFS __LINUX_ALSA__)
+@@ -571,4 +571,4 @@ elseif(DEFINED OS_MACOS)
+ 	set_target_properties(giada PROPERTIES
+ 		XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
+ 
+-endif()
+\ No newline at end of file
++endif()
