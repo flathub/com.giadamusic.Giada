@@ -95,50 +95,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/monocasual/giada/archive/v0.18.2.tar.gz",
-                    "sha256": "659013edfbd645dc6efc28bd071cf6aed117c7062aef6e22a23b4fef04ec9ce9"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/monocasual/geompp.git",
-                    "commit": "75e79f5",
-                    "dest": "src/deps/geompp"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/juce-framework/JUCE.git",
-                    "commit": "4f01392",
-                    "dest": "src/deps/juce"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/nlohmann/json.git",
-                    "commit": "db78ac1",
-                    "dest": "src/deps/json"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/monocasual/rtaudio.git",
-                    "commit": "eca6192",
-                    "dest": "src/deps/rtaudio"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/steinbergmedia/vst3sdk.git",
-                    "commit": "ef0a70d",
-                    "dest": "src/deps/vst3sdk"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/monocasual/mcl-atomic-swapper.git",
-                    "commit": "f7f76d5",
-                    "dest": "src/deps/mcl-atomic-swapper"
-                },
-                {
-                    "type": "git",
-                    "url": "https://github.com/monocasual/mcl-audio-buffer.git",
-                    "commit": "7c273e0",
-                    "dest": "src/deps/mcl-audio-buffer"
+                    "url": "https://www.giadamusic.com/data/giada-v0.19.0-src.tar.gz",
+                    "sha256": "cfc86101cd2001142ea410eb226b27aa2f9f25a3276f7e5f7b350ee7878a77c8"
                 },
                 {
                     "type": "patch",
