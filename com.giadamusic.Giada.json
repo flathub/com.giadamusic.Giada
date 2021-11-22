@@ -88,7 +88,7 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.18.2\" date=\"2021-09-12\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.19.0\" date=\"2021-11-06\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "install -d /app/extensions/Plugins"
             ],
