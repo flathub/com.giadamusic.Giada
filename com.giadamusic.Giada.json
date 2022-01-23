@@ -88,15 +88,15 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.19.2\" date=\"2021-12-16\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.20.0\" date=\"2022-01-23\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "install -d /app/extensions/Plugins"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-v0.19.2-src.tar.gz",
-                    "sha256": "797bcb3b2aff17026d37d7ccfbe1ca191e2a88c0877e9f04ae72c9487993af95"
+                    "url": "https://www.giadamusic.com/data/giada-v0.20.0-src.tar.gz",
+                    "sha256": "433279613ca22f9b2e25949f2d5712a22a23070e0d8ce3998f6274719528c5a6"
                 },
                 {
                     "type": "patch",

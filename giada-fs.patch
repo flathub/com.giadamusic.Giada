@@ -11,10 +11,3 @@ index c1571c58..8399d86e 100644
  
  	if (WITH_ALSA)
  		list(APPEND PREPROCESSOR_DEFS __LINUX_ALSA__)
-@@ -571,4 +571,4 @@ elseif(DEFINED OS_MACOS)
- 	set_target_properties(giada PROPERTIES
- 		XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
- 
--endif()
-\ No newline at end of file
-+endif()
