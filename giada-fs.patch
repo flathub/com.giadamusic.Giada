@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c1571c58..8399d86e 100644
+index 4aeb5e3b..7ce5a5a3 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -395,7 +395,7 @@ if(DEFINED OS_LINUX)
+@@ -409,7 +409,7 @@ if(DEFINED OS_LINUX)
  		${X11_LIBRARIES} ${X11_Xrender_LIB} ${X11_Xft_LIB} ${X11_Xfixes_LIB}
  		${X11_Xinerama_LIB} ${X11_Xcursor_LIB} ${X11_Xpm_LIB} ${LIBRARY_PULSE}
  		${LIBRARY_PULSE_SIMPLE} ${LIBRARY_FONTCONFIG} ${JACK_LDFLAGS}
@@ -11,3 +11,20 @@ index c1571c58..8399d86e 100644
  
  	if (WITH_ALSA)
  		list(APPEND PREPROCESSOR_DEFS __LINUX_ALSA__)
+diff --git a/src/gui/elems/basics/flex.cpp b/src/gui/elems/basics/flex.cpp
+index 4bf14213..ca483b3a 100644
+--- a/src/gui/elems/basics/flex.cpp
++++ b/src/gui/elems/basics/flex.cpp
+@@ -1,4 +1,5 @@
+ #include "flex.h"
++#include <stddef.h>
+ #include <numeric>
+ 
+ namespace giada::v
+@@ -133,4 +134,4 @@ void geFlex::end()
+ 	Fl_Group::end();
+ 	resize(x(), y(), w(), h());
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
