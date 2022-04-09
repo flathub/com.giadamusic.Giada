@@ -11,20 +11,3 @@ index 4aeb5e3b..7ce5a5a3 100644
  
  	if (WITH_ALSA)
  		list(APPEND PREPROCESSOR_DEFS __LINUX_ALSA__)
-diff --git a/src/gui/elems/basics/flex.cpp b/src/gui/elems/basics/flex.cpp
-index 4bf14213..ca483b3a 100644
---- a/src/gui/elems/basics/flex.cpp
-+++ b/src/gui/elems/basics/flex.cpp
-@@ -1,4 +1,5 @@
- #include "flex.h"
-+#include <stddef.h>
- #include <numeric>
- 
- namespace giada::v
-@@ -133,4 +134,4 @@ void geFlex::end()
- 	Fl_Group::end();
- 	resize(x(), y(), w(), h());
- }
--} // namespace giada::v
-\ No newline at end of file
-+} // namespace giada::v
