@@ -75,8 +75,19 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-4.0.0.tar.gz",
-                    "sha256": "370cfe710f43fbeba8d2b8c8bc310f314338c519c2cf2865e2d2737b251526cd"
+                    "url": "http://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-5.0.0.tar.gz",
+                    "sha256": "48db0ed58c8c0e207b5d7327a0210b5bcaeb50e26387935d02829239b0f3c2b9"
+                }
+            ]
+        },
+        {
+            "name": "fmt",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/fmtlib/fmt/releases/download/8.1.1/fmt-8.1.1.zip",
+                    "sha256": "23778bad8edba12d76e4075da06db591f3b0e3c6c04928ced4a7282ca3400e5d"
                 }
             ]
         },
@@ -88,19 +99,35 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.21.0\" date=\"2022-04-02\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.22.0\" date=\"2022-06-11\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "install -d /app/extensions/Plugins"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-v0.21.0-src.tar.gz",
-                    "sha256": "b3b9f9bfb0b417e93f03c336bb039744c8d1c99e5c3faa2a66cebbd2b31e5bfe"
+                    "url": "https://www.giadamusic.com/data/giada-v0.22.0-src.tar.gz",
+                    "sha256": "8a24b12a23678a506095eab33437b30867b7537653529c5f7a261e2955596af7"
+                },
+                {
+                    "type": "git",
+                    "url": "https://github.com/nlohmann/json.git",
+                    "commit": "db78ac1",
+                    "dest": "src/deps/json.git"
                 },
                 {
                     "type": "patch",
-                    "path": "giada-fs.patch"
+                    "paths": [
+                        "patches/giada-fs.patch",
+                        "patches/giada-destkop.patch"
+                    ]
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "rm -fr src/deps/json",
+                        "mv src/deps/json{.git,}"
+                    ]
                 }
             ]
         }
