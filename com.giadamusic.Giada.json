@@ -1,7 +1,7 @@
 {
     "id": "com.giadamusic.Giada",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "21.08",
+    "runtime-version": "22.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "giada",
     "finish-args": [
@@ -14,7 +14,6 @@
         "--device=all",
         /* For pipewire + JACK */
         "--filesystem=xdg-run/pipewire-0",
-        "--system-talk-name=org.freedesktop.RealtimeKit1",
         /* Allow loading, saving files from anywhere (portals don’t work yet) */
         "--filesystem=home",
         /* Allow other instances to see lockfiles */
@@ -24,17 +23,13 @@
     "add-extensions": {
         "org.freedesktop.LinuxAudio.Plugins": {
             "directory": "extensions/Plugins",
-            "version": "21.08",
+            "version": "22.08",
             "add-ld-path": "lib",
             "merge-dirs": "vst3",
             "subdirectories": true,
             "no-autodownload": true
         }
     },
-    "cleanup": [
-        "/bin/jack*",
-        "/bin/alsa*"
-    ],
     "modules": [
         {
             "name": "fltk",
@@ -62,7 +57,6 @@
                 "*.a"
             ]
         },
-        "shared-modules/linux-audio/jack2.json",
         {
             "name": "rtmidi",
             "cleanup": [
@@ -119,7 +113,8 @@
                     "type": "patch",
                     "paths": [
                         "patches/giada-fs.patch",
-                        "patches/giada-destkop.patch"
+                        "patches/giada-destkop.patch",
+                        "patches/juce-616-header.patch"
                     ]
                 },
                 {
