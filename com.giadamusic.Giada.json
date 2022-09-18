@@ -17,46 +17,19 @@
         /* Allow loading, saving files from anywhere (portals don’t work yet) */
         "--filesystem=home",
         /* Allow other instances to see lockfiles */
-        "--env=TMPDIR=/var/tmp",
-        "--env=VST3_PATH=/app/extensions/Plugins/vst3"
+        "--env=TMPDIR=/var/tmp"
     ],
     "add-extensions": {
         "org.freedesktop.LinuxAudio.Plugins": {
             "directory": "extensions/Plugins",
             "version": "22.08",
             "add-ld-path": "lib",
-            "merge-dirs": "vst3",
+            "merge-dirs": "vst3;lv2",
             "subdirectories": true,
             "no-autodownload": true
         }
     },
     "modules": [
-        {
-            "name": "fltk",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
-                "-DOPTION_USE_THREADS=ON",
-                "-DOPTION_CAIRO=ON"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/fltk/fltk/archive/release-1.3.7.tar.gz",
-                    "sha256": "019f65810fb0ea5acac14c852193e8f374e822e6a3034a3c80ed8676f6f3a090"
-                }
-            ],
-            "cleanup": [
-                "/bin",
-                "/include",
-                "/man",
-                "/share",
-                "/lib/pkgconfig",
-                "*.so",
-                "*.la",
-                "*.a"
-            ]
-        },
         {
             "name": "rtmidi",
             "cleanup": [
@@ -77,6 +50,10 @@
         {
             "name": "fmt",
             "buildsystem": "cmake-ninja",
+            "cleanup": [
+                "/lib/pkgconfig",
+                "/share"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -86,42 +63,67 @@
             ]
         },
         {
-            "name": "giada",
+            "name": "jsoncpp",
             "buildsystem": "cmake-ninja",
+            "cleanup": [
+                "/share"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/nlohmann/json.git",
+                    "tag": "v3.11.2",
+                    "commit": "bc889afb4c5bf1c0d8ee29ef35eaaf4c8bef8a5d"
+                }
+            ]
+        },
+        "shared-modules/glu/glu-9.json",
+        {
+            "name": "giada",
+            /* fail to build with cmake-ninja */
+            "buildsystem": "cmake",
+            "builddir": true,
+            "cleanup": [
+                "/bin/JUCE-*"
+            ],
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.22.0\" date=\"2022-06-11\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.23.0\" date=\"2022-09-17\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
+                "mv /app/bin/giada{,.bin}",
+                "install -Dm755 ../giada.sh /app/bin/giada",
                 "install -d /app/extensions/Plugins"
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-v0.22.0-src.tar.gz",
-                    "sha256": "8a24b12a23678a506095eab33437b30867b7537653529c5f7a261e2955596af7"
+                    "type": "git",
+                    "dest": "src/deps/juce",
+                    "url": "https://github.com/juce-framework/JUCE.git",
+                    "commit": "b08520c2de1771af3dfcbfbc0e0b6b0b5eb083b0"
                 },
                 {
-                    "type": "git",
-                    "url": "https://github.com/nlohmann/json.git",
-                    "commit": "db78ac1",
-                    "dest": "src/deps/json.git"
+                    "type": "archive",
+                    "url": "https://www.giadamusic.com/data/giada-v0.23.0-src.tar.gz",
+                    "sha256": "b9d0871c778a5cc2d7b65991a447b3c1d4880ef7186b2939a0d087a7e43ad302"
                 },
                 {
                     "type": "patch",
                     "paths": [
                         "patches/giada-fs.patch",
-                        "patches/giada-destkop.patch",
+                        "patches/giada-path.patch",
                         "patches/juce-616-header.patch"
                     ]
                 },
                 {
-                    "type": "shell",
+                    "type": "script",
+                    "dest-filename": "giada.sh",
                     "commands": [
-                        "rm -fr src/deps/json",
-                        "mv src/deps/json{.git,}"
+                        "#!/bin/sh",
+                        "export LV2_PATH=/app/extensions/Plugins/lv2:/app/lib/lv2:$HOME/.lv2",
+                        "exec giada.bin $@"
                     ]
                 }
             ]
