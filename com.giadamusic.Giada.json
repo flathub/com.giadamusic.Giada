@@ -91,7 +91,7 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.23.0\" date=\"2022-09-17\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.23.2\" date=\"2022-12-08\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "mv /app/bin/giada{,.bin}",
                 "install -Dm755 ../giada.sh /app/bin/giada",
@@ -106,8 +106,8 @@
                 },
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-v0.23.0-src.tar.gz",
-                    "sha256": "b9d0871c778a5cc2d7b65991a447b3c1d4880ef7186b2939a0d087a7e43ad302"
+                    "url": "https://www.giadamusic.com/data/giada-v0.23.2-src.tar.gz",
+                    "sha256": "ebb81d7cc2cfba4e2878956ff3234c10ae995a303779ac56a92fd1764b76b402"
                 },
                 {
                     "type": "patch",
