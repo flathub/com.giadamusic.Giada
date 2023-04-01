@@ -5,18 +5,12 @@
     "sdk": "org.freedesktop.Sdk",
     "command": "giada",
     "finish-args": [
-        /* X11 + XShm access */
         "--share=ipc",
         "--socket=x11",
-        /* Note playback */
         "--socket=pulseaudio",
-        /* MIDI */
         "--device=all",
-        /* For pipewire + JACK */
         "--filesystem=xdg-run/pipewire-0",
-        /* Allow loading, saving files from anywhere (portals don’t work yet) */
         "--filesystem=home",
-        /* Allow other instances to see lockfiles */
         "--env=TMPDIR=/var/tmp"
     ],
     "add-extensions": {
@@ -51,14 +45,17 @@
             "name": "fmt",
             "buildsystem": "cmake-ninja",
             "cleanup": [
+                "/include",
+                "/lib/cmake",
                 "/lib/pkgconfig",
-                "/share"
+                "/share",
+                "*.a"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/fmtlib/fmt/releases/download/8.1.1/fmt-8.1.1.zip",
-                    "sha256": "23778bad8edba12d76e4075da06db591f3b0e3c6c04928ced4a7282ca3400e5d"
+                    "url": "https://github.com/fmtlib/fmt/releases/download/9.1.0/fmt-9.1.0.zip",
+                    "sha256": "cceb4cb9366e18a5742128cb3524ce5f50e88b476f1e54737a47ffdf4df4c996"
                 }
             ]
         },
@@ -66,6 +63,7 @@
             "name": "jsoncpp",
             "buildsystem": "cmake-ninja",
             "cleanup": [
+                "/include",
                 "/share"
             ],
             "sources": [
@@ -80,18 +78,19 @@
         "shared-modules/glu/glu-9.json",
         {
             "name": "giada",
-            /* fail to build with cmake-ninja */
             "buildsystem": "cmake",
             "builddir": true,
             "cleanup": [
-                "/bin/JUCE-*"
+                "/include",
+                "/bin/JUCE-*",
+                "/lib/cmake"
             ],
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.23.2\" date=\"2022-12-08\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.24.0\" date=\"2023-03-16\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "mv /app/bin/giada{,.bin}",
                 "install -Dm755 ../giada.sh /app/bin/giada",
@@ -106,14 +105,15 @@
                 },
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-v0.23.2-src.tar.gz",
-                    "sha256": "ebb81d7cc2cfba4e2878956ff3234c10ae995a303779ac56a92fd1764b76b402"
+                    "url": "https://www.giadamusic.com/data/giada-v0.24.0-src.tar.gz",
+                    "sha256": "2bdd454b2bbb9a33e3b0176a42e18f432a38aba95855a2de7fcb96e8848cd306"
                 },
                 {
                     "type": "patch",
                     "paths": [
                         "patches/giada-fs.patch",
                         "patches/giada-path.patch",
+                        "patches/giada-fmt.patch",
                         "patches/juce-616-header.patch"
                     ]
                 },
