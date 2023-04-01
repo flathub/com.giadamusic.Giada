@@ -1,13 +1,11 @@
-diff --git a/src/core/conf.h b/src/core/conf.h
-index ac4b4727..5b94e4cd 100644
---- a/src/core/conf.h
-+++ b/src/core/conf.h
-@@ -77,7 +77,7 @@ public:
- 		bool inputMonitorDefaultOn      = false;
- 		bool overdubProtectionDefaultOn = false;
+--- giada/src/core/conf.h-orig	2023-03-16 16:12:50.102131623 -0400
++++ giada/src/core/conf.h	2023-03-16 16:13:46.084064123 -0400
+@@ -68,7 +68,7 @@
+ 	bool inputMonitorDefaultOn      = false;
+ 	bool overdubProtectionDefaultOn = false;
  
--		std::string pluginPath;
-+		std::string pluginPath = "/app/extensions/Plugins/vst3";
- 		std::string patchPath;
- 		std::string samplePath;
+-	std::string pluginPath;
++	std::string pluginPath = "/app/extensions/Plugins/vst3";
+ 	std::string patchPath;
+ 	std::string samplePath;
  
