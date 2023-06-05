@@ -90,7 +90,7 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.24.0\" date=\"2023-03-16\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.25.0\" date=\"2023-06-03\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "mv /app/bin/giada{,.bin}",
                 "install -Dm755 ../giada.sh /app/bin/giada",
@@ -101,20 +101,19 @@
                     "type": "git",
                     "dest": "src/deps/juce",
                     "url": "https://github.com/juce-framework/JUCE.git",
-                    "commit": "b08520c2de1771af3dfcbfbc0e0b6b0b5eb083b0"
+                    "tag": "7.0.5",
+                    "commit": "69795dc8e589a9eb5df251b6dd994859bf7b3fab"
                 },
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-v0.24.0-src.tar.gz",
-                    "sha256": "2bdd454b2bbb9a33e3b0176a42e18f432a38aba95855a2de7fcb96e8848cd306"
+                    "url": "https://www.giadamusic.com/data/giada-v0.25.0-src.tar.gz",
+                    "sha256": "def8cbcdf5de44a2c436021680dd899ecd49ea41875c20063ce77f0b8deac02b"
                 },
                 {
                     "type": "patch",
                     "paths": [
                         "patches/giada-fs.patch",
-                        "patches/giada-path.patch",
-                        "patches/giada-fmt.patch",
-                        "patches/juce-616-header.patch"
+                        "patches/giada-path.patch"
                     ]
                 },
                 {
