@@ -45,6 +45,7 @@
             "name": "fmt",
             "buildsystem": "cmake-ninja",
             "cleanup": [
+                "/bin",
                 "/include",
                 "/lib/cmake",
                 "/lib/pkgconfig",
@@ -54,8 +55,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/fmtlib/fmt/releases/download/9.1.0/fmt-9.1.0.zip",
-                    "sha256": "cceb4cb9366e18a5742128cb3524ce5f50e88b476f1e54737a47ffdf4df4c996"
+                    "url": "https://github.com/fmtlib/fmt/releases/download/10.0.0/fmt-10.0.0.zip",
+                    "sha256": "4943cb165f3f587f26da834d3056ee8733c397e024145ca7d2a8a96bb71ac281"
                 }
             ]
         },
@@ -90,7 +91,7 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.25.0\" date=\"2023-06-03\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.25.1\" date=\"2023-08-03\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "mv /app/bin/giada{,.bin}",
                 "install -Dm755 ../giada.sh /app/bin/giada",
@@ -98,16 +99,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "dest": "src/deps/juce",
-                    "url": "https://github.com/juce-framework/JUCE.git",
-                    "tag": "7.0.5",
-                    "commit": "69795dc8e589a9eb5df251b6dd994859bf7b3fab"
-                },
-                {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-v0.25.0-src.tar.gz",
-                    "sha256": "def8cbcdf5de44a2c436021680dd899ecd49ea41875c20063ce77f0b8deac02b"
+                    "url": "https://www.giadamusic.com/data/giada-0.25.1-src.tar.gz",
+                    "sha256": "2012652bfb30c5d005290dc723cd1757cbb99c5b84c3df09f059e5808af74f2b"
                 },
                 {
                     "type": "patch",
