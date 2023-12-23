@@ -98,7 +98,7 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.26.0\" date=\"2023-10-14\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
+                "sed -e '/<releases>/ a <release version=\"0.26.1\" date=\"2023-12-21\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "mv /app/bin/giada{,.bin}",
                 "install -Dm755 ../giada.sh /app/bin/giada",
@@ -107,8 +107,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-0.26.0-src.tar.gz",
-                    "sha256": "64d1889bf909d0334a8cec6ffdc8eeea564ef63e7a8bbeed838577e3fc7da6dd"
+                    "url": "https://www.giadamusic.com/data/giada-0.26.1-src.tar.gz",
+                    "sha256": "5985e54a84762026ffc2736d2715308d2b6a3b0398d1b6dd156e4e702fd407d9"
                 },
                 {
                     "type": "patch",
