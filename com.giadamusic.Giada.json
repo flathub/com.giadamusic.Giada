@@ -98,7 +98,6 @@
                 "-DWITH_VST3=ON"
             ],
             "post-install": [
-                "sed -e '/<releases>/ a <release version=\"0.26.1\" date=\"2023-12-21\" />' -i ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml",
                 "desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
                 "mv /app/bin/giada{,.bin}",
                 "install -Dm755 ../giada.sh /app/bin/giada",
@@ -107,21 +106,21 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-0.26.1-src.tar.gz",
-                    "sha256": "5985e54a84762026ffc2736d2715308d2b6a3b0398d1b6dd156e4e702fd407d9"
+                    "url": "https://www.giadamusic.com/data/giada-1.0.0-src.tar.gz",
+                    "sha256": "f00c6990116e539cac317a2ac4e41c3524c9b7862894a1352d3e7a360e886f2f"
                 },
                 {
                     "type": "patch",
                     "paths": [
                         "patches/giada-fs.patch",
-                        "patches/giada-path.patch"
+                        "patches/giada-path.patch",
+                        "patches/giada-appdata.patch"
                     ]
                 },
                 {
                     "type": "script",
                     "dest-filename": "giada.sh",
                     "commands": [
-                        "#!/bin/sh",
                         "export LV2_PATH=/app/extensions/Plugins/lv2:/app/lib/lv2:$HOME/.lv2",
                         "exec giada.bin $@"
                     ]

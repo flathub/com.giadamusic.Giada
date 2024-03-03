@@ -1,0 +1,22 @@
+diff --git a/extras/com.giadamusic.Giada.metainfo.xml b/extras/com.giadamusic.Giada.metainfo.xml
+index fca0cd4b..8fb5afe2 100644
+--- a/extras/com.giadamusic.Giada.metainfo.xml
++++ b/extras/com.giadamusic.Giada.metainfo.xml
+@@ -9,6 +9,7 @@
+ 	<description>
+ 		<p>Giada is an open source, minimalistic and hardcore music production tool. Designed for DJs, live performers and electronic musicians.</p>
+ 	</description>
++        <developer_name>Giada Developers</developer_name>
+ 	<content_rating type="oars-1.1" />
+ 	<launchable type="desktop-id">com.giadamusic.Giada.desktop</launchable>
+ 	<screenshots>
+@@ -17,6 +18,9 @@
+ 			<caption>Giada official screenshot</caption>
+ 		</screenshot>
+ 	</screenshots>
++        <releases>
++          <release version="1.0.0" date="2024-02-26" />
++        </releases>
+ 	<update_contact>giadaloopmachine_AT_gmail.com</update_contact>
+ 	<url type="homepage">https://www.giadamusic.com/</url>
+ 	<url type="help">https://github.com/monocasual/giada/discussions</url>
