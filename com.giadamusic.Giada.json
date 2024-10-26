@@ -106,8 +106,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-1.0.0-src.tar.gz",
-                    "sha256": "f00c6990116e539cac317a2ac4e41c3524c9b7862894a1352d3e7a360e886f2f"
+                    "url": "https://www.giadamusic.com/data/giada-1.1.0-src.tar.gz",
+                    "sha256": "0230972a4bf2f13519468724f520d0406475d34772b3b4533d897b8fe38f381e"
                 },
                 {
                     "type": "patch",
@@ -122,7 +122,7 @@
                     "dest-filename": "giada.sh",
                     "commands": [
                         "export LV2_PATH=/app/extensions/Plugins/lv2:/app/lib/lv2:$HOME/.lv2",
-                        "exec giada.bin $@"
+                        "exec giada.bin \"$@\""
                     ]
                 }
             ]
