@@ -23,6 +23,12 @@
             "no-autodownload": true
         }
     },
+    "cleanup": [
+        "/share/fltk",
+        "/share/man",
+        "/bin/fltk-config",
+        "*.a"
+    ],
     "modules": [
         {
             "name": "rtmidi",
@@ -86,7 +92,7 @@
         "shared-modules/glu/glu-9.json",
         {
             "name": "giada",
-            "buildsystem": "cmake",
+            "buildsystem": "cmake-ninja",
             "builddir": true,
             "cleanup": [
                 "/include",
@@ -106,8 +112,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-1.1.0-src.tar.gz",
-                    "sha256": "0230972a4bf2f13519468724f520d0406475d34772b3b4533d897b8fe38f381e"
+                    "url": "https://www.giadamusic.com/data/giada-1.1.1-src.tar.gz",
+                    "sha256": "c0ce00f1e2467d5fb95787aa76986cba8717baab76505feb682f9511d5f67939"
                 },
                 {
                     "type": "patch",
