@@ -10,11 +10,13 @@ index fca0cd4b..8fb5afe2 100644
  	<content_rating type="oars-1.1" />
  	<launchable type="desktop-id">com.giadamusic.Giada.desktop</launchable>
  	<screenshots>
-@@ -17,6 +18,9 @@
+@@ -17,6 +18,11 @@
  			<caption>Giada official screenshot</caption>
  		</screenshot>
  	</screenshots>
 +        <releases>
++          <release version="1.1.1" date="2025-02-8" />
++          <release version="1.1.0" date="2024-10-26" />
 +          <release version="1.0.0" date="2024-02-26" />
 +        </releases>
  	<update_contact>giadaloopmachine_AT_gmail.com</update_contact>
