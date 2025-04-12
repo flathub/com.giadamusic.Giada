@@ -113,7 +113,14 @@
                 {
                     "type": "archive",
                     "url": "https://www.giadamusic.com/data/giada-1.1.1-src.tar.gz",
-                    "sha256": "c0ce00f1e2467d5fb95787aa76986cba8717baab76505feb682f9511d5f67939"
+                    "sha256": "c0ce00f1e2467d5fb95787aa76986cba8717baab76505feb682f9511d5f67939",
+
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/monocasual/giada/releases/latest",
+                        "version-query": ".tag_name | sub(\"^jq-\"; \"\")",
+                        "url-query": "\"https://www.giadamusic.com/data/giada-\" + ($version) + \"-src.tar.gz\""
+                    }
                 },
                 {
                     "type": "patch",
