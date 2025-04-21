@@ -112,9 +112,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-1.1.1-src.tar.gz",
-                    "sha256": "c0ce00f1e2467d5fb95787aa76986cba8717baab76505feb682f9511d5f67939",
-
+                    "url": "https://www.giadamusic.com/data/giada-1.2.0-src.tar.gz",
+                    "sha256": "1d5a7e3c8b69a60765f4d3bb498db03a8ad163efefdc6093f8848ea778187df6",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/monocasual/giada/releases/latest",
