@@ -112,21 +112,20 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.giadamusic.com/data/giada-1.2.0-src.tar.gz",
-                    "sha256": "1d5a7e3c8b69a60765f4d3bb498db03a8ad163efefdc6093f8848ea778187df6",
+                    "url": "https://github.com/monocasual/giada/releases/download/1.2.1/giada-1.2.1-src.tar.gz",
+                    "sha256": "cbb54bd833c1920abcfd368443efec98c55c290c8cc4f17e0fb83c46b824fc96",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/monocasual/giada/releases/latest",
                         "version-query": ".tag_name | sub(\"^jq-\"; \"\")",
-                        "url-query": "\"https://www.giadamusic.com/data/giada-\" + ($version) + \"-src.tar.gz\""
+                        "url-query": "\"https://github.com/monocasual/giada/releases/download/\" + ($version) + \"/giada-\" + ($version) +  \"-src.tar.gz\""
                     }
                 },
                 {
                     "type": "patch",
                     "paths": [
                         "patches/giada-fs.patch",
-                        "patches/giada-path.patch",
-                        "patches/giada-appdata.patch"
+                        "patches/giada-path.patch"
                     ]
                 },
                 {
