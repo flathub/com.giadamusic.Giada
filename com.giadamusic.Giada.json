@@ -48,25 +48,6 @@
             ]
         },
         {
-            "name": "fmt",
-            "buildsystem": "cmake-ninja",
-            "cleanup": [
-                "/bin",
-                "/include",
-                "/lib/cmake",
-                "/lib/pkgconfig",
-                "/share",
-                "*.a"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/fmtlib/fmt/releases/download/10.0.0/fmt-10.0.0.zip",
-                    "sha256": "4943cb165f3f587f26da834d3056ee8733c397e024145ca7d2a8a96bb71ac281"
-                }
-            ]
-        },
-        {
             "name": "jsoncpp",
             "buildsystem": "cmake-ninja",
             "config-opts": [
