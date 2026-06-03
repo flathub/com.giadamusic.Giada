@@ -96,8 +96,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/monocasual/giada/releases/download/1.4.1/giada-1.4.1-src.tar.gz",
-                    "sha256": "0a93c78ef63253415b0c29a587651f2644806158d5c771480469f850d9a70dc7",
+                    "url": "https://github.com/monocasual/giada/releases/download/1.4.2/giada-1.4.2-src.tar.gz",
+                    "sha256": "18756acd784bc598d9b55e9bbbfb632975f9bc3643501bb7d23b264a78b069ab",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/monocasual/giada/releases/latest",
