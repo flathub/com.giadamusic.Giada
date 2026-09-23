@@ -53,11 +53,8 @@
             "name": "jsoncpp",
             "buildsystem": "cmake-ninja",
             "config-opts": [
-                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-            ],
-            "cleanup": [
-                "/include",
-                "/share"
+                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                "-DJSON_BuildTests=OFF"
             ],
             "sources": [
                 {
