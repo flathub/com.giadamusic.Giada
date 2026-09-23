@@ -24,6 +24,8 @@
         }
     },
     "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
         "/share/fltk",
         "/share/man",
         "/bin/fltk-config",
@@ -75,6 +77,17 @@
         },
         "shared-modules/glu/glu-9.json",
         {
+            "name": "rubberband",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://breakfastquay.com/files/releases/rubberband-4.0.0.tar.bz2",
+                    "sha256": "af050313ee63bc18b35b2e064e5dce05b276aaf6d1aa2b8a82ced1fe2f8028e9"
+                }
+            ]
+        },
+        {
             "name": "giada",
             "buildsystem": "cmake-ninja",
             "builddir": true,
@@ -96,8 +109,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/monocasual/giada/releases/download/1.5.0/giada-1.5.0-src.tar.gz",
-                    "sha256": "12686a2cb8e83f02f0e2321dbc29f730ea589a83c029a1eeb83c63d1c904124d",
+                    "url": "https://github.com/monocasual/giada/releases/download/1.6.0/giada-1.6.0-src.tar.gz",
+                    "sha256": "2d6680d8430da7b73387eafc6e758fd47b6dc90e356d9a76034b0b41df7b75ec",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/monocasual/giada/releases/latest",
