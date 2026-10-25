@@ -1,0 +1,350 @@
+diff --git a/src/core/wave.cpp b/src/core/wave.cpp
+index c2a2b59..3b01ef7 100644
+--- a/src/core/wave.cpp
++++ b/src/core/wave.cpp
+@@ -28,6 +28,7 @@
+ #include "src/deps/mcl-utils/src/fs.hpp"
+ #include <cassert>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ namespace utils = mcl::utils;
+ 
+diff --git a/src/glue/config.cpp b/src/glue/config.cpp
+index e05b483..0358272 100644
+--- a/src/glue/config.cpp
++++ b/src/glue/config.cpp
+@@ -38,6 +38,7 @@
+ #include "src/gui/ui.h"
+ #include "src/utils/fs.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui*     g_ui;
+ extern giada::m::Engine* g_engine;
+diff --git a/src/gui/dialogs/about.cpp b/src/gui/dialogs/about.cpp
+index 818e219..6ef7708 100644
+--- a/src/gui/dialogs/about.cpp
++++ b/src/gui/dialogs/about.cpp
+@@ -33,6 +33,7 @@
+ #include "src/utils/gui.h"
+ #include "src/utils/string.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -96,4 +97,4 @@ gdAbout::gdAbout()
+ 	set_modal();
+ 	show();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/dialogs/actionEditor/baseActionEditor.cpp b/src/gui/dialogs/actionEditor/baseActionEditor.cpp
+index 5c5e6db..71120f4 100644
+--- a/src/gui/dialogs/actionEditor/baseActionEditor.cpp
++++ b/src/gui/dialogs/actionEditor/baseActionEditor.cpp
+@@ -44,6 +44,7 @@
+ #include <FL/fl_draw.H>
+ #include <cassert>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ #include <limits>
+ #include <string>
+ 
+@@ -222,4 +223,4 @@ Pixel gdBaseActionEditor::currentTickToPixel() const
+ {
+ 	return (tickToPixel(m_data.getCurrentTick()) + m_splitScroll->x()) - m_splitScroll->getScrollX();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/dialogs/bpmInput.cpp b/src/gui/dialogs/bpmInput.cpp
+index 0b862f8..c3c8282 100644
+--- a/src/gui/dialogs/bpmInput.cpp
++++ b/src/gui/dialogs/bpmInput.cpp
+@@ -34,6 +34,7 @@
+ #include "src/utils/gui.h"
+ #include <cstring>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -72,4 +73,4 @@ gdBpmInput::gdBpmInput(float value)
+ 	set_modal();
+ 	show();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/dialogs/channelRouting.cpp b/src/gui/dialogs/channelRouting.cpp
+index 8b1af7a..fc53484 100644
+--- a/src/gui/dialogs/channelRouting.cpp
++++ b/src/gui/dialogs/channelRouting.cpp
+@@ -38,6 +38,7 @@
+ #include "src/gui/ui.h"
+ #include "src/utils/gui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ #include <ranges>
+ 
+ extern giada::v::Ui* g_ui;
+@@ -169,4 +170,4 @@ void gdChannelRouting::rebuild()
+ 	for (const int offset : m_data.extraOutputs)
+ 		m_outputs->addWidget(new geOutput(makeOutputName(m_data.outputDeviceName, offset, m_data.outputMaxNumChannels), m_data.id, i++));
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/dialogs/mainWindow.cpp b/src/gui/dialogs/mainWindow.cpp
+index 68446b8..b4ea54b 100644
+--- a/src/gui/dialogs/mainWindow.cpp
++++ b/src/gui/dialogs/mainWindow.cpp
+@@ -43,6 +43,7 @@
+ #include <FL/Fl.H>
+ #include <FL/Fl_Tooltip.H>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -247,4 +248,4 @@ void gdMainWindow::resize(int x, int y, int w, int h)
+ 	gdWindow::resize(x, y, w, h);
+ 	g_ui->model.mainWindowBounds = getBounds();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/dialogs/sampleEditor.cpp b/src/gui/dialogs/sampleEditor.cpp
+index 8f016a7..2440d3a 100644
+--- a/src/gui/dialogs/sampleEditor.cpp
++++ b/src/gui/dialogs/sampleEditor.cpp
+@@ -55,6 +55,7 @@
+ #include <cassert>
+ #include <cmath>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ #if G_OS_WINDOWS
+ #undef IN
+diff --git a/src/gui/elems/config/tabAudio.cpp b/src/gui/elems/config/tabAudio.cpp
+index a42422b..a631317 100644
+--- a/src/gui/elems/config/tabAudio.cpp
++++ b/src/gui/elems/config/tabAudio.cpp
+@@ -36,6 +36,7 @@
+ #include "src/gui/ui.h"
+ #include "src/utils/gui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ #include <string>
+ 
+ extern giada::v::Ui* g_ui;
+@@ -480,4 +481,4 @@ void geTabAudio::activateAll()
+ 	m_recTriggerLevel->activate();
+ 	m_rsmpQuality->activate();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/config/tabPlugins.cpp b/src/gui/elems/config/tabPlugins.cpp
+index 98305e2..49a04f2 100644
+--- a/src/gui/elems/config/tabPlugins.cpp
++++ b/src/gui/elems/config/tabPlugins.cpp
+@@ -40,6 +40,7 @@
+ #include "src/utils/string.h"
+ #include <FL/Fl.H>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ #include <functional>
+ 
+ extern giada::v::Ui* g_ui;
+@@ -115,4 +116,4 @@ void geTabPlugins::rebuild()
+ 	m_folderPath->setValue(m_data.pluginPath);
+ 	m_folderPath->redraw();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/mainWindow/cpuLoad.cpp b/src/gui/elems/mainWindow/cpuLoad.cpp
+index 19e0cab..1b4ebfa 100644
+--- a/src/gui/elems/mainWindow/cpuLoad.cpp
++++ b/src/gui/elems/mainWindow/cpuLoad.cpp
+@@ -31,6 +31,7 @@
+ #include "src/gui/elems/basics/box.h"
+ #include "src/gui/elems/basics/progress.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ namespace giada::v
+ {
+diff --git a/src/gui/elems/mainWindow/keyboard/groupChannel.cpp b/src/gui/elems/mainWindow/keyboard/groupChannel.cpp
+index 961b2de..68afdce 100644
+--- a/src/gui/elems/mainWindow/keyboard/groupChannel.cpp
++++ b/src/gui/elems/mainWindow/keyboard/groupChannel.cpp
+@@ -35,6 +35,7 @@
+ #include "src/gui/graphics.h"
+ #include "src/gui/ui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -178,4 +179,4 @@ void geGroupChannel::resize(int X, int Y, int W, int H)
+ {
+ 	geChannel::resize(X, Y, W, H);
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/mainWindow/keyboard/midiChannel.cpp b/src/gui/elems/mainWindow/keyboard/midiChannel.cpp
+index 4ddcca1..48338a0 100644
+--- a/src/gui/elems/mainWindow/keyboard/midiChannel.cpp
++++ b/src/gui/elems/mainWindow/keyboard/midiChannel.cpp
+@@ -36,6 +36,7 @@
+ #include "src/gui/graphics.h"
+ #include "src/gui/ui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -244,4 +245,4 @@ void geMidiChannel::resize(int X, int Y, int W, int H)
+ 	if (w() > BREAK_SMALL)
+ 		fx->show();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/mainWindow/keyboard/midiChannelButton.cpp b/src/gui/elems/mainWindow/keyboard/midiChannelButton.cpp
+index a8da2c8..01ab4db 100644
+--- a/src/gui/elems/mainWindow/keyboard/midiChannelButton.cpp
++++ b/src/gui/elems/mainWindow/keyboard/midiChannelButton.cpp
+@@ -27,6 +27,7 @@
+ #include "src/gui/elems/mainWindow/keyboard/midiChannelButton.h"
+ #include "src/glue/channel.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ namespace giada::v
+ {
+diff --git a/src/gui/elems/mainWindow/keyboard/sampleChannel.cpp b/src/gui/elems/mainWindow/keyboard/sampleChannel.cpp
+index 549fbf1..a4c8d4d 100644
+--- a/src/gui/elems/mainWindow/keyboard/sampleChannel.cpp
++++ b/src/gui/elems/mainWindow/keyboard/sampleChannel.cpp
+@@ -38,6 +38,7 @@
+ #include "src/gui/graphics.h"
+ #include "src/gui/ui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -361,4 +362,4 @@ void geSampleChannel::resize(int X, int Y, int W, int H)
+ 	if (w() > BREAK_LARGE)
+ 		readActionsBtn->show();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/mainWindow/mainTimer.cpp b/src/gui/elems/mainWindow/mainTimer.cpp
+index 55361d1..2f57ab1 100644
+--- a/src/gui/elems/mainWindow/mainTimer.cpp
++++ b/src/gui/elems/mainWindow/mainTimer.cpp
+@@ -34,6 +34,7 @@
+ #include "src/gui/ui.h"
+ #include "src/utils/gui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+diff --git a/src/gui/elems/mainWindow/scenes.cpp b/src/gui/elems/mainWindow/scenes.cpp
+index a2aca20..344b6ea 100644
+--- a/src/gui/elems/mainWindow/scenes.cpp
++++ b/src/gui/elems/mainWindow/scenes.cpp
+@@ -32,6 +32,7 @@
+ #include "src/gui/elems/playButton.h"
+ #include "src/gui/ui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+diff --git a/src/gui/elems/midiIO/midiLearner.cpp b/src/gui/elems/midiIO/midiLearner.cpp
+index 76746df..a699e2a 100644
+--- a/src/gui/elems/midiIO/midiLearner.cpp
++++ b/src/gui/elems/midiIO/midiLearner.cpp
+@@ -31,6 +31,7 @@
+ #include "src/gui/ui.h"
+ #include <cassert>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -120,4 +121,4 @@ void geMidiLearner::deactivate()
+ 	m_learnBtn->deactivate();
+ 	m_clearBtn->deactivate();
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/panTool.cpp b/src/gui/elems/panTool.cpp
+index b431b5f..511f6be 100644
+--- a/src/gui/elems/panTool.cpp
++++ b/src/gui/elems/panTool.cpp
+@@ -34,6 +34,7 @@
+ #include "src/utils/string.h"
+ #include <FL/Fl.H>
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -89,4 +90,4 @@ void gePanTool::update(float pan)
+ 		m_input->setValue(fmt::format("{} R", value));
+ 	}
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/sampleEditor/pitchTool.cpp b/src/gui/elems/sampleEditor/pitchTool.cpp
+index bb7a85b..d8440b1 100644
+--- a/src/gui/elems/sampleEditor/pitchTool.cpp
++++ b/src/gui/elems/sampleEditor/pitchTool.cpp
+@@ -39,6 +39,7 @@
+ #include "src/gui/ui.h"
+ #include "src/utils/gui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -184,4 +185,4 @@ void gePitchTool::spreadSampleToLength(Frame length)
+ 	}
+ }
+ 
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v
+diff --git a/src/gui/elems/volumeTool.cpp b/src/gui/elems/volumeTool.cpp
+index 22a8673..776609a 100644
+--- a/src/gui/elems/volumeTool.cpp
++++ b/src/gui/elems/volumeTool.cpp
+@@ -33,6 +33,7 @@
+ #include "src/gui/elems/basics/textButton.h"
+ #include "src/gui/ui.h"
+ #include <fmt/core.h>
++#include <fmt/format.h>
+ 
+ extern giada::v::Ui* g_ui;
+ 
+@@ -87,4 +88,4 @@ void geVolumeTool::update(float volume, bool fromDial)
+ 	if (!fromDial)
+ 		m_dial->value(volume);
+ }
+-} // namespace giada::v
+\ No newline at end of file
++} // namespace giada::v

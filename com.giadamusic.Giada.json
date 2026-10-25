@@ -1,7 +1,7 @@
 {
     "id": "com.giadamusic.Giada",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "25.08",
+    "runtime-version": "26.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "giada",
     "finish-args": [
@@ -9,14 +9,14 @@
         "--socket=x11",
         "--socket=pulseaudio",
         "--device=dri",
-        "--filesystem=xdg-run/pipewire-0",
+        "--filesystem=xdg-run/pipewire-0:ro",
         "--filesystem=home",
         "--env=TMPDIR=/var/tmp"
     ],
     "add-extensions": {
         "org.freedesktop.LinuxAudio.Plugins": {
             "directory": "extensions/Plugins",
-            "version": "25.08",
+            "version": "26.08",
             "add-ld-path": "lib",
             "merge-dirs": "vst3;lv2",
             "subdirectories": true,
@@ -119,7 +119,8 @@
                     "type": "patch",
                     "paths": [
                         "patches/giada-fs.patch",
-                        "patches/giada-path.patch"
+                        "patches/giada-path.patch",
+                        "patches/giada-fmt.patch"
                     ]
                 },
                 {
